@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: omnicore-ai-agent
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        value: omnicore_ai_agent_secret_key_2025
+      - key: JWT_SECRET_KEY
+        value: omnicore_ai_agent_jwt_secret_key_2025
+      - key: MONGO_URI
+        value: mongodb://localhost:27017/omnicore
+      - key: CORS_ORIGINS
+        value: "*"
+
